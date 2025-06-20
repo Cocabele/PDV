@@ -1,0 +1,8 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-development
+    volumes:
+    - ./docs/wwwroot:/usr/share/nginx/html:ro
+    ports:
+    - "8080:80"
