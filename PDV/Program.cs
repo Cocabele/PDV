@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using PDV.Components;
 using PDV.Components.Account;
 using PDV.Data;
-using MudBlazor
+using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
