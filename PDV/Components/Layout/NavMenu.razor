@@ -1,21 +1,39 @@
-﻿@inherits LayoutComponentBase
-@inject NavigationManager NavigationManager
-<h1>Alemão Menu</h1>
+﻿@inject NavigationManager NavigationManager
+@implements IDisposable
 
-<ul class="nav flex-column">
-    <li class="nav-item">
-        <NavLink class="nav-link" href="/alemanho/overview">Overview</NavLink>
-    </li>
-    <li class="nav-item">
-        <NavLink class="nav-link" href="/alemanho/grammar">Grammar</NavLink>
-    </li>
-    <li class="nav-item">
-        <NavLink class="nav-link" href="/alemanho/vocabulary">Vocabulary</NavLink>
-    </li>
-    <li class="nav-item">
-        <NavLink class="nav-link" href="/alemanho/pronunciation">Pronunciation</NavLink>
-    </li>
-</ul>
+<MudPaper Elevation="0" Class="py-3">
+    <MudNavMenu Color="Color.Primary">
+        <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">
+            Página Inicial
+        </MudNavLink>
+
+        <AuthorizeView>
+            <MudNavGroup Title="Cadastros" Icon="@Icons.Material.Filled.Add" Expanded="false">
+                <MudNavLink Href="cadastro/produto" Match="NavLinkMatch.All">
+                    Cadastrar Produto
+                </MudNavLink>
+            </MudNavGroup>
+        </AuthorizeView>
+    </MudNavMenu>
+</MudPaper>
+
 @code {
+    private string? currentUrl;
 
+    protected override void OnInitialized()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
 }
