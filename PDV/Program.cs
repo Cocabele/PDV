@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using PDV.Components;
 using PDV.Components.Account;
 using PDV.Data;
+using MudBlazor
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,7 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
     .AddDefaultTokenProviders();
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+builder.Services.AddMudServices();
 
 var app = builder.Build();
 
