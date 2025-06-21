@@ -5,6 +5,8 @@ using PDV.Components;
 using PDV.Components.Account;
 using PDV.Data;
 using MudBlazor.Services;
+using PDV.Infrastructure.Interfaces;
+using PDV.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +40,11 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
 builder.Services.AddMudServices();
+
+
+// Registro dos servicos
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<ProdutoRepository>();
 
 var app = builder.Build();
 
