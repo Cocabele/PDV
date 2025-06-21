@@ -24,6 +24,7 @@ builder.Services.AddAuthentication(options =>
     })
     .AddIdentityCookies();
 
+// TODO: alterar banco de dados para SqLite
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
