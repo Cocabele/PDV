@@ -6,14 +6,11 @@
         <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">
             Página Inicial
         </MudNavLink>
-
-        <AuthorizeView>
-            <MudNavGroup Title="Cadastros" Icon="@Icons.Material.Filled.Add" Expanded="false">
-                <MudNavLink Href="cadastro/produto" Match="NavLinkMatch.All">
-                    Cadastrar Produto
-                </MudNavLink>
-            </MudNavGroup>
-        </AuthorizeView>
+        <MudNavGroup Title="Cadastros" Icon="@Icons.Material.Filled.Add" Expanded="false">
+            <MudNavLink Href="cadastro/produto" Match="NavLinkMatch.All">
+                Cadastrar Produto
+            </MudNavLink>
+        </MudNavGroup>
     </MudNavMenu>
 </MudPaper>
 
