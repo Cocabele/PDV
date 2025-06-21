@@ -8,6 +8,7 @@ namespace PDV.Infrastructure.Model
         public string Nome { get; set; }
         public double? Custo { get; set; }
         public double Valor { get; set; }
+
         public string? Descricao { get; set; }
         public int Quantidade { get; set; }
         public byte[]? Imagem { get; set; }
