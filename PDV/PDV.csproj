@@ -15,8 +15,4 @@
     <PackageReference Include="MudBlazor" Version="8.8.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Domain\" />
-  </ItemGroup>
-
 </Project>
